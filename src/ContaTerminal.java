@@ -1,9 +1,10 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ContaTerminal {
 
 	public static void main(String[] args) {
-
+        Locale.setDefault(Locale.US); 
 		Scanner sc = new Scanner(System.in);
 		int numero;
 		String agencia;
@@ -12,6 +13,7 @@ public class ContaTerminal {
 
 		System.out.println("**************CONTA BANCÁRIA*******************");
 		System.out.println();
+    try{    
 		System.out.println("Por favor, digite o número da Conta: (utilize - 1021)");
 		numero = sc.nextInt();
 
@@ -25,9 +27,12 @@ public class ContaTerminal {
 		System.out.println("Agora me informa seu saldo atual:(utilise o valor de R$ 237.48) ");
 		saldo = sc.nextDouble();
 
-		System.out.println("Olá" + nomeCliente +", obrigado por criar uma conta em nosso banco, sua agência é" + agencia +", conta" + numero +" e seu saldo " + saldo + "já está disponível para saque.");
-
-		sc.close();
-	}
-
+		System.out.println("Olá " + nomeCliente +", obrigado por criar uma conta em nosso banco, sua agência é " + agencia +", conta" + numero +" e seu saldo " + saldo + "já está disponível para saque.");
+    } catch (Exception e){
+        System.out.println("Erro na entrada de dados. Verifique se os valores fornecidos estão corretos.");
+        } finally {
+            sc.close();
+	
+        }
+    } 
 }
